@@ -1,0 +1,165 @@
+{
+  "version": 1,
+  "skills": {
+    "ai-engineer": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "computedHash": "854935520f6d01c8cbe9ce3914c50f1b900252e87fde16e9e750e8e7b957ba6e"
+    },
+    "android-biometric-login": {
+      "source": "peterbamuhigire/skills-web-dev",
+      "sourceType": "github",
+      "computedHash": "47973f87ceb89968149dadcdab094e21224bf4955b6bd09310f97c4d3386692e"
+    },
+    "brandkit": {
+      "source": "Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "skillPath": "skills/brandkit/SKILL.md",
+      "computedHash": "735007879f5110aeae1e981a53fe74a12afde70347f9773dacd50e4697a091bf"
+    },
+    "emil-design-eng": {
+      "source": "emilkowalski/skill",
+      "sourceType": "github",
+      "skillPath": "skills/emil-design-eng/SKILL.md",
+      "computedHash": "ac3fc5b4e206488ffc408a2806f829bb2e5eaf518fded09be34790685c2b3a0d"
+    },
+    "flutter-animating-apps": {
+      "source": "flutter/skills",
+      "sourceType": "github",
+      "computedHash": "df4443b32d5d2f266a3fd4f58e4bff44f6ed6264df723a904d5ef3108785db18"
+    },
+    "flutter-architecting-apps": {
+      "source": "flutter/skills",
+      "sourceType": "github",
+      "computedHash": "5e45577e7ad0ebd27eaa20b0f006967cdc71d420b5f2c7ea9e8db860a07d0802"
+    },
+    "flutter-best-practices": {
+      "source": "mauriciog87/flutter-agent-skill",
+      "sourceType": "github",
+      "computedHash": "1d978baa367917773f438ae22dd67fe784deb0498994916c16217853d29557e3"
+    },
+    "flutter-building-layouts": {
+      "source": "flutter/skills",
+      "sourceType": "github",
+      "computedHash": "1010c7fbc41061aa1c7d215cbea36cb9ffbb851bd33aea2e4175f74215e7b602"
+    },
+    "flutter-dart-code-review": {
+      "source": "affaan-m/everything-claude-code",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-dart-code-review/SKILL.md",
+      "computedHash": "080fb45f1d5e1fc9c236e4aee0159da8b476df466f867a742d0b9aff83dfd063"
+    },
+    "flutter-expert": {
+      "source": "jeffallan/claude-skills",
+      "sourceType": "github",
+      "computedHash": "d260811d0d6d769174e0615ae06e189a67ee04c70e6cf57b19e9096be2d205f1"
+    },
+    "flutter-handling-concurrency": {
+      "source": "flutter/skills",
+      "sourceType": "github",
+      "computedHash": "5dc5b1c8d8dfe65b60c0f8fb3cdd4d686b2a2e4db0ebbed730a82095b72212dd"
+    },
+    "flutter-implementing-navigation-and-routing": {
+      "source": "flutter/skills",
+      "sourceType": "github",
+      "computedHash": "7247406b26de6e3711bc654c8c1e09fb1abf21b8fc465174cef4ffb563726d3f"
+    },
+    "flutter-security": {
+      "source": "dhruvanbhalara/skills",
+      "sourceType": "github",
+      "skillPath": "skills/flutter/flutter-security/SKILL.md",
+      "computedHash": "d7cb58e4991527e96f43d4dc1a3df3ae5fe5937f2e5cdb03699532fe24be4246"
+    },
+    "flutter-testing-apps": {
+      "source": "flutter/skills",
+      "sourceType": "github",
+      "computedHash": "beb1d2de3a34745a13c066f06316150e5ab647f45922d5e5d86ee9c6c47c6cb4"
+    },
+    "flutter-ui": {
+      "source": "dhruvanbhalara/skills",
+      "sourceType": "github",
+      "computedHash": "a2b431e3c556cde2cad3693241fb82fed170d64a51b0bc5fce59924d83ea2726"
+    },
+    "flutter-working-with-databases": {
+      "source": "flutter/skills",
+      "sourceType": "github",
+      "computedHash": "9d404abc6315c0a02afbbbdb44426344ca2127c3d6bc2b5f84cd0f237d2a0e7c"
+    },
+    "imagegen-frontend-mobile": {
+      "source": "Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "skillPath": "skills/imagegen-frontend-mobile/SKILL.md",
+      "computedHash": "7c1d1dc59cd0df4063b8621af543bf5dea1d576b261507e17b0323c69680b048"
+    },
+    "impeccable": {
+      "source": "pbakaus/impeccable",
+      "sourceType": "github",
+      "skillPath": "skill/SKILL.md",
+      "computedHash": "e08cc9be673b6b5e66eb55cf77eb50a940fc603245b2f75d8370a2043aa926aa"
+    },
+    "minimalist-ui": {
+      "source": "Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "skillPath": "skills/minimalist-skill/SKILL.md",
+      "computedHash": "7e88897e0371184e97a82b8d9ef080323c13f21eb067b58ef71eb05173a08ac2"
+    },
+    "multi-tenant-saas-architecture": {
+      "source": "peterbamuhigire/skills-web-dev",
+      "sourceType": "github",
+      "computedHash": "9c5a8b623c731ff9f194f0e8372eda6f90d57917c823a8ef39d25c1ea4985882"
+    },
+    "multi-tenant-safety-checker": {
+      "source": "patricio0312rev/skills",
+      "sourceType": "github",
+      "computedHash": "7ca68da5bf8f07cf467d43be909c1a3ba8b480a2302d1c45ee8cad8e0c5a187c"
+    },
+    "ocr-document-processor": {
+      "source": "dkyazzentwatwa/chatgpt-skills",
+      "sourceType": "github",
+      "computedHash": "34bae06e21db7af3a83920f81db623700362586b3361f313581d29f792eefd4f"
+    },
+    "openrouter-api": {
+      "source": "jrajasekera/claude-skills",
+      "sourceType": "github",
+      "computedHash": "8e5106a60aa9d3454b1db0980e8dd2207ed8bf680988e649d6156bc53aa87f3d"
+    },
+    "pdf": {
+      "source": "openai/skills",
+      "sourceType": "github",
+      "skillPath": "skills/.curated/pdf/SKILL.md",
+      "computedHash": "af1e0791f5356b6de053e6b97d7703fe0d7ea1997371b9023afd4720bebcf93f"
+    },
+    "redesign-existing-projects": {
+      "source": "Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "skillPath": "skills/redesign-skill/SKILL.md",
+      "computedHash": "47eced3e960a2c961d3cbee11fa1216264f589344b586a5cbd03967cd6b9c54b"
+    },
+    "secure-multi-tenancy-isolation": {
+      "source": "starwreckntx/irp__methodologies-",
+      "sourceType": "github",
+      "computedHash": "5cbae3ab29500995581bee616bf80ee43d0fff5b36e467107875bbef9897892f"
+    },
+    "signup-flow-cro": {
+      "source": "coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "computedHash": "9ed0af5cecc6d6b9956a7ffd79c15cb18e5a19d3249bb760418a9b763eb21503"
+    },
+    "supabase-postgres-best-practices": {
+      "source": "supabase/agent-skills",
+      "sourceType": "github",
+      "computedHash": "e3ba3d760c5f4cc43b02a91fb8924f726c7818f95cc35d79d0a606ca622b72f5"
+    },
+    "systematic-debugging": {
+      "source": "obra/superpowers",
+      "sourceType": "github",
+      "skillPath": "skills/systematic-debugging/SKILL.md",
+      "computedHash": "72e9ab72627e4fd8ed26a582e82309a98ecdc4f6e1c99418430ac05682c9e91d"
+    },
+    "ui-ux-pro-max": {
+      "source": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "sourceType": "github",
+      "computedHash": "6337038fe1fe6bbe1b9f252ab678ee575859190bab6f0f246f4061824eb40875"
+    }
+  }
+}

@@ -1,0 +1,144 @@
+name: Security CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  startup-config-contract:
+    name: Startup config contract
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Verify required dart-define workflow
+        run: |
+          python3 - <<'PY'
+          import json
+          import pathlib
+          import sys
+
+          required_keys = ('SUPABASE_URL', 'SUPABASE_ANON_KEY')
+          example_path = pathlib.Path('env/example.json')
+          launch_path = pathlib.Path('.vscode/launch.json')
+          readme_path = pathlib.Path('README.md')
+
+          example = json.loads(example_path.read_text())
+          missing = [key for key in required_keys if key not in example]
+          if missing:
+              sys.exit(f'{example_path} is missing required keys: {missing}')
+
+          launch = json.loads(launch_path.read_text())
+          configs = launch.get('configurations', [])
+          has_define_file = any(
+              '--dart-define-from-file=env/dev.json' in config.get('toolArgs', [])
+              for config in configs
+          )
+          if not has_define_file:
+              sys.exit(f'{launch_path} must pass --dart-define-from-file=env/dev.json')
+
+          readme = readme_path.read_text()
+          required_readme_tokens = (
+              '--dart-define-from-file=env/dev.json',
+              '--dart-define=SUPABASE_URL',
+              '--dart-define=SUPABASE_ANON_KEY',
+          )
+          missing_docs = [token for token in required_readme_tokens if token not in readme]
+          if missing_docs:
+              sys.exit(f'{readme_path} is missing startup config docs: {missing_docs}')
+          PY
+
+  flutter-analyze:
+    name: Flutter analyze
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Install Flutter dependencies
+        run: flutter pub get
+
+      - name: Analyze Flutter code
+        run: flutter analyze
+
+  edge-functions-deno-check:
+    name: Edge Functions deno check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v1.x
+
+      - name: Type-check Supabase Edge Functions
+        run: |
+          deno check \
+            supabase/functions/process-document/index.ts \
+            supabase/functions/classify-document-type/index.ts \
+            supabase/functions/classify-expense/index.ts \
+            supabase/functions/recognize-products/index.ts \
+            supabase/functions/_shared/request.ts \
+            supabase/functions/_shared/rate_limit.ts \
+            supabase/functions/_shared/redact.ts
+
+  security-grep-gates:
+    name: Security grep gates
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Run forbidden-pattern checks
+        shell: pwsh
+        run: ./scripts/security/check_forbidden_patterns.ps1
+
+  dependency-security:
+    name: Dependency security scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Install Flutter dependencies
+        run: flutter pub get
+
+      - name: Check dependency freshness
+        run: flutter pub outdated
+
+      - name: Run OSV vulnerability scan
+        uses: google/osv-scanner-action/osv-scanner-action@v2
+        with:
+          scan-args: |-
+            --lockfile=pubspec.lock
+
+  migration-rls-lint:
+    name: Migration RLS lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Check tenant-table RLS coverage
+        run: python3 scripts/security/check_migration_rls.py
