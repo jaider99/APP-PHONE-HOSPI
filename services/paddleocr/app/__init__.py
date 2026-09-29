@@ -1,0 +1,1 @@
+"""Revtio PaddleOCR fallback service."""
