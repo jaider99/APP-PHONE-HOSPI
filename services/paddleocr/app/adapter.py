@@ -63,11 +63,45 @@ def _to_block(entry: dict[str, Any]) -> dict[str, Any] | None:
         "label",
         "category",
     ) or "unknown"
-    text = _first_string(entry, "text", "content", "rec_text", "markdown")
-    html = _first_string(entry, "html", "table_html")
-    bbox = _first_value(entry, "bbox", "box", "poly", "coordinate")
-    confidence = _first_number(entry, "confidence", "score", "rec_score")
-    cells = _first_value(entry, "cells", "cell_box_list", "table_cells")
+
+    text = _first_string(
+        entry,
+        "block_content",
+        "text",
+        "content",
+        "rec_text",
+        "markdown",
+    )
+
+    html = _first_string(
+        entry,
+        "pred_html",
+        "html",
+        "table_html",
+    )
+
+    bbox = _first_value(
+        entry,
+        "block_bbox",
+        "bbox",
+        "box",
+        "poly",
+        "coordinate",
+    )
+
+    confidence = _first_number(
+        entry,
+        "confidence",
+        "score",
+        "rec_score",
+    )
+
+    cells = _first_value(
+        entry,
+        "cell_box_list",
+        "cells",
+        "table_cells",
+    )
 
     if not text and not html and not cells:
         return None
