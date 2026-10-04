@@ -104,12 +104,22 @@ def _result_to_json(result: Any) -> Any:
     json_value = getattr(result, "json", None)
 
     if json_value is not None:
-        return json_value
+        return _unwrap_result_payload(json_value)
 
     if hasattr(result, "to_dict"):
-        return result.to_dict()
+        return _unwrap_result_payload(result.to_dict())
 
     if isinstance(result, dict):
-        return result
+        return _unwrap_result_payload(result)
 
     return {"text": str(result)}
+
+
+def _unwrap_result_payload(value: Any) -> Any:
+    if (
+        isinstance(value, dict)
+        and isinstance(value.get("res"), dict)
+    ):
+        return value["res"]
+
+    return value
