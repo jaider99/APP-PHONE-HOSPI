@@ -80,6 +80,14 @@ def _to_block(entry: dict[str, Any]) -> dict[str, Any] | None:
         "table_html",
     )
 
+    if (
+        "table" in block_type.lower()
+        and text
+        and text.lstrip().lower().startswith(("<html", "<table"))
+    ):
+        html = html or text
+        text = None
+
     bbox = _first_value(
         entry,
         "block_bbox",
